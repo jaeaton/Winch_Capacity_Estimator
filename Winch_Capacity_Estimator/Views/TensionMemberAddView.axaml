@@ -1,0 +1,71 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Views.TensionMemberAddView"
+			 x:CompileBindings="false">
+  <Panel>
+	  <ScrollViewer>
+	  <StackPanel Orientation="Vertical">
+		  <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="2">
+			  <TextBlock Text="Tension Member Name" Width="180" VerticalAlignment="Center" Margin="2"/>
+			  <TextBox Watermark="Enter Name" Text="{ Binding CurrentTensionMember.CableName }" Width="140" Margin="2" HorizontalContentAlignment="Center"/>
+		  </StackPanel>
+		  <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="2">
+			  <TextBlock Text="Manufacturer" Width="180" VerticalAlignment="Center" Margin="2"/>
+			  <TextBox Watermark="Enter Manufacturer" Text="{ Binding CurrentTensionMember.CableManufacturer }" Width="140" Margin="2" HorizontalContentAlignment="Center"/>
+		  </StackPanel>
+		  <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="2">
+			  <TextBlock Text="Part Number" Width="180" VerticalAlignment="Center" Margin="2"/>
+			  <TextBox Watermark="Enter Part No" Text="{ Binding CurrentTensionMember.CablePartNumber }" Width="140" Margin="2" HorizontalContentAlignment="Center"/>
+		  </StackPanel>
+		  <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="2">
+			  <TextBlock Text="Tension Member Material" Width="180" VerticalAlignment="Center" Margin="2"/>
+			  <TextBox Watermark="Enter Material" Text="{ Binding CurrentTensionMember.CableMaterial }" Width="140" Margin="2" HorizontalContentAlignment="Center"/>
+			  <CheckBox Content="Synthetic?" Margin="2"/>
+		  </StackPanel>
+		  <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="2">
+			  <TextBlock Text="Diameter (d)" Width="180" VerticalAlignment="Center" Margin="2"/>
+			  <TextBox Watermark="Enter Diameter" Text="{ Binding CurrentTensionMember.Diameter }" Width="140" Margin="2" HorizontalContentAlignment="Center"/>
+			  <ComboBox Margin="2" SelectedItem="{ Binding CurrentTensionMember.DiameterUnit }" ItemsSource="{ Binding LengthUnitList }"/>
+		  </StackPanel>
+		  <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="2">
+			  <TextBlock Text="Largest Wire Strand (d1)" Width="180" VerticalAlignment="Center" Margin="2"/>
+			  <TextBox Watermark="Enter Diameter" Text="{ Binding CurrentTensionMember.LargestStrandDiameter }" Width="140" Margin="2" HorizontalContentAlignment="Center"/>
+			  <ComboBox Margin="2" SelectedItem="{ Binding CurrentTensionMember.LargestStrandDiameterUnit }" ItemsSource="{ Binding LengthUnitList }"/>
+		  </StackPanel>
+		  <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="2">
+			  <TextBlock Text="Minimum Bend Diameter" Width="180" VerticalAlignment="Center" Margin="2"/>
+			  <TextBox Watermark="Enter Diameter" Text="{ Binding CurrentTensionMember.BendDiameter }" Width="140" Margin="2" HorizontalContentAlignment="Center"/>
+			  <ComboBox Margin="2" SelectedItem="{ Binding CurrentTensionMember.BendDiameterUnit }" ItemsSource="{ Binding LengthUnitList }"/>
+		  </StackPanel>
+		  <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="2">
+			  <TextBlock Text="Assigned Breaking Load" Width="180" VerticalAlignment="Center" Margin="2"/>
+			  <TextBox Watermark="Enter ABL" Text="{ Binding CurrentTensionMember.AssignedBreakingLoad }" Width="140" Margin="2" HorizontalContentAlignment="Center"/>
+			  <ComboBox Margin="2" SelectedItem="{ Binding CurrentTensionMember.AssignedBreakingLoadUnit }" ItemsSource="{ Binding ForceUnitList }"/>
+		  </StackPanel>
+		  <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="2">
+			  <TextBlock Text="Weight in Water" Width="180" VerticalAlignment="Center" Margin="2"/>
+			  <TextBox Watermark="Enter Wet Weight" Text="{ Binding CurrentTensionMember.WeightInWater }" Width="140" Margin="2" HorizontalContentAlignment="Center"/>
+			  <ComboBox Margin="2" SelectedItem="{ Binding CurrentTensionMember.WeightInWaterForceUnit }" ItemsSource="{ Binding ForceUnitList }"/>
+			  <TextBlock Text="/" VerticalAlignment="Center" FontSize="28"/>
+			  <ComboBox Margin="2" SelectedItem="{ Binding CurrentTensionMember.WeightInWaterLengthUnit }" ItemsSource="{ Binding LengthUnitList }"/>
+		  </StackPanel>
+		  <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="2">
+			  <TextBlock Text="Weight in Air" Width="180" VerticalAlignment="Center" Margin="2"/>
+			  <TextBox Watermark="Enter Air Weight" Text="{ Binding CurrentTensionMember.WeightInAir }" Width="140" Margin="2" HorizontalContentAlignment="Center"/>
+			  <ComboBox Margin="2" SelectedItem="{ Binding CurrentTensionMember.WeightInAirForceUnit }" ItemsSource="{ Binding ForceUnitList }"/>
+			  <TextBlock Text="/" VerticalAlignment="Center" FontSize="28"/>
+			  <ComboBox Margin="2" SelectedItem="{ Binding CurrentTensionMember.WeightInAirLengthUnit }" ItemsSource="{ Binding LengthUnitList }"/>
+
+		  </StackPanel>
+		  <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="2">
+			  <Button Content="Add Tension Member" Command="{ Binding AddTensionMemberCommand }" HorizontalContentAlignment="Center" Width="200" Margin="2"/>
+			  <Button Content="Remove Tension Member"  Command="{ Binding RemoveTensionMemberCommand }" HorizontalContentAlignment="Center" Width="200" Margin="2"/>
+			  
+		  </StackPanel>
+	  </StackPanel>
+	  </ScrollViewer>
+  </Panel>
+</UserControl>

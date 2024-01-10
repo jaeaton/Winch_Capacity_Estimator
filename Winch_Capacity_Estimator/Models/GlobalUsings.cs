@@ -1,0 +1,23 @@
+﻿global using System;
+global using System.Collections.Generic;
+global using System.Collections.ObjectModel;
+global using System.Linq;
+global using System.Text;
+global using System.Threading.Tasks;
+global using System.IO;
+global using CommunityToolkit.Mvvm;
+global using CommunityToolkit.Mvvm.ComponentModel;
+global using CommunityToolkit.Mvvm.Input;
+global using Avalonia;
+global using Avalonia.Controls;
+global using Avalonia.Interactivity;
+global using Avalonia.Controls.Templates;
+global using Avalonia.Data;
+global using Avalonia.Layout;
+global using Avalonia.Media;
+
+global using Models;
+global using ViewModels;
+global using Views;
+global using Stores;
+global using Winch_Capacity_Estimator;

@@ -1,0 +1,106 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="600"
+             x:Class="Views.EstimatorView"
+			 x:CompileBindings="false">
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="Auto"/>
+			<ColumnDefinition Width="*"/>
+		</Grid.ColumnDefinitions>
+		<Grid Grid.Column="0">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto"/>
+				<RowDefinition Height="*"/>
+			</Grid.RowDefinitions>
+			<Border Grid.Row="0" BorderBrush="DarkBlue" BorderThickness="2" Margin="2" CornerRadius="5">
+				<StackPanel  >
+					<StackPanel Orientation="Horizontal">
+						<TextBlock Text="Maximum Length" Width="200" Margin="4" VerticalAlignment="Center"/>
+						<TextBox Text="{ Binding DrumTable.TMCapacity }" Width="200" Margin="4" VerticalAlignment="Center"/>
+					</StackPanel>
+					<StackPanel Orientation="Horizontal">
+						<TextBlock Text="Number of Layers" Width="200" Margin="4" VerticalAlignment="Center"/>
+						<TextBox Text="{ Binding DrumTable.LayerQuantity }" Width="200" Margin="4" VerticalAlignment="Center"/>
+					</StackPanel>
+					<StackPanel Orientation="Horizontal">
+						<TextBlock Text="Turns per Layer" Width="200" Margin="4" VerticalAlignment="Center"/>
+						<TextBox Text="{ Binding DrumTable.LayerTurnQuantity }" Width="200" Margin="4" VerticalAlignment="Center"/>
+					</StackPanel>
+					<StackPanel Orientation="Horizontal">
+						<TextBlock Text="Actual Free Flange" Width="200" Margin="4" VerticalAlignment="Center"/>
+						<TextBox Text="{ Binding DrumTable.ActualFreeFlange }" Width="200" Margin="4" VerticalAlignment="Center"/>
+					</StackPanel>
+				</StackPanel>
+			</Border>
+			<Border Grid.Row="1" BorderThickness="2" BorderBrush="DarkGray" CornerRadius="5" Margin="2">
+				<ScrollViewer>
+					<StackPanel>
+					<StackPanel Orientation="Horizontal">
+						<TextBlock Text="Choose Winch" Width="200" Margin="4" VerticalAlignment="Center"/>
+						<ComboBox ItemsSource="{ Binding WinchList }" SelectedItem="{ Binding SelectedWinch }" Width="200" Margin="4" VerticalAlignment="Center"/>
+					</StackPanel>
+					<StackPanel Orientation="Horizontal">
+						<TextBlock Text="Drum Diameter" Width="200" Margin="4" VerticalAlignment="Center"/>
+						<TextBox Text="{ Binding CurrentWinch.DrumDiameter }" Width="200" Margin="4" VerticalAlignment="Center"/>
+					</StackPanel>
+					<StackPanel Orientation="Horizontal">
+						<TextBlock Text="Flange Height" Width="200" Margin="4" VerticalAlignment="Center"/>
+						<TextBox Text="{ Binding CurrentWinch.FlangeHeight }" Width="200" Margin="4" VerticalAlignment="Center"/>
+					</StackPanel>
+					<StackPanel Orientation="Horizontal">
+						<TextBlock Text="Drum Width" Width="200" Margin="4" VerticalAlignment="Center"/>
+						<TextBox Text="{ Binding CurrentWinch.DrumWidth }" Width="200" Margin="4" VerticalAlignment="Center"/>
+					</StackPanel>
+					<StackPanel Orientation="Horizontal">
+						<TextBlock Text="Choose Tension Member" Width="200" Margin="4" VerticalAlignment="Center"/>
+						<ComboBox ItemsSource="{ Binding TensionMemberList }" SelectedItem="{ Binding SelectedTensionMember }" Width="200" Margin="4" VerticalAlignment="Center"/>
+					</StackPanel>
+					<StackPanel Orientation="Horizontal">
+						<TextBlock Text="Tension Member Diameter" Width="200" Margin="4" VerticalAlignment="Center"/>
+						<TextBox Text="{ Binding CurrentTensionMember.Diameter }" Width="200" Margin="4" VerticalAlignment="Center"/>
+					</StackPanel>
+					<StackPanel Orientation="Horizontal">
+						<TextBlock Text="Tension Member Length Unit" Width="200" Margin="4" VerticalAlignment="Center"/>
+						<ComboBox ItemsSource="{ Binding LengthUnitList }" SelectedItem="{ Binding DrumTable.TMUnit }" Width="200" Margin="4" VerticalAlignment="Center"/>
+					</StackPanel>
+					<StackPanel Orientation="Horizontal">
+						<TextBlock Text="Free Flange Minimum" Width="200" Margin="4" VerticalAlignment="Center"/>
+						<ComboBox ItemsSource="{ Binding FreeFlangeList }" SelectedItem="{ Binding DrumTable.FreeFlange }" Width="200" Margin="4" VerticalAlignment="Center"/>
+					</StackPanel>
+						<StackPanel Orientation="Horizontal">
+							<TextBlock Text="Spooling Efficiency (%)" Width="200" Margin="4" VerticalAlignment="Center"/>
+							<ComboBox ItemsSource="{ Binding SpoolingFactorList }" SelectedItem="{ Binding DrumTable.SpoolingFactor }" Width="200" Margin="4" VerticalAlignment="Center"/>
+						</StackPanel>
+						<StackPanel>
+							<Button Content="Calculate Drum Table" Command="{ Binding DrumCapacityCommand }"/>
+						</StackPanel>
+				</StackPanel>
+				</ScrollViewer>
+				
+			</Border>			
+		</Grid>
+		<Border Grid.Column="1" BorderBrush="DarkCyan" BorderThickness="2" CornerRadius="5" Margin="2">
+			<Panel>
+				<TextBlock Text="Spooling Chart" HorizontalAlignment="Center" FontWeight="Bold"/>
+				<ScrollViewer>
+					<DataGrid GridLinesVisibility="All" Margin="20" BorderThickness="2" ItemsSource="{ Binding DrumTable.DrumTable}">
+						<DataGrid.Columns>
+							<DataGridTextColumn Header="Layer" Binding="{ Binding LayerNumber }"/>
+							<DataGridTextColumn Header="TM on Drum" Binding="{ Binding TMOnDrum }"/>
+							<DataGridTextColumn Header="TM on Layer" Binding="{ Binding LayerLength }"/>
+							<DataGridTextColumn Header="TM Off Drum" Binding="{ Binding TMOffDrum }"/>
+							<DataGridTextColumn Header="Layer Line Pull" Binding="{ Binding LayerLinePull }"/>
+							<DataGridTextColumn Header="Live Load" Binding="{ Binding LiveLoad }"/>
+						</DataGrid.Columns>
+					</DataGrid>
+				</ScrollViewer>
+			</Panel>
+			
+		</Border>
+		
+		
+	</Grid>
+</UserControl>

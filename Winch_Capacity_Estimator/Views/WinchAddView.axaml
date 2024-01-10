@@ -1,0 +1,69 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Views.WinchAddView"
+			 x:CompileBindings="false">
+	<Panel>
+		<ScrollViewer>
+		<StackPanel Orientation="Vertical">
+			<StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="2">
+				<TextBlock Text="Winch Name" Width="180" VerticalAlignment="Center" Margin="2"/>
+				<TextBox Watermark="Enter Name" Text="{ Binding CurrentWinch.WinchName }" Width="140" Margin="2" HorizontalContentAlignment="Center"/>
+			</StackPanel>
+			<StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="2">
+				<TextBlock Text="Manufacturer" Width="180" VerticalAlignment="Center" Margin="2"/>
+				<TextBox Watermark="Enter Manufacturer" Text="{ Binding CurrentWinch.WinchManufacturer }" Width="140" Margin="2" HorizontalContentAlignment="Center"/>
+			</StackPanel>
+			<StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="2">
+				<TextBlock Text="Model Number" Width="180" VerticalAlignment="Center" Margin="2"/>
+				<TextBox Watermark="Enter Model No" Text="{ Binding CurrentWinch.WinchModelNumber }" Width="140" Margin="2" HorizontalContentAlignment="Center"/>
+			</StackPanel>
+			<StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="2">
+				<TextBlock Text="Drum Diameter" Width="180" VerticalAlignment="Center" Margin="2"/>
+				<TextBox Watermark="Enter Diameter" Text="{ Binding CurrentWinch.DrumDiameter }" Width="140" Margin="2" HorizontalContentAlignment="Center"/>
+				<ComboBox Margin="2" SelectedItem="{ Binding CurrentWinch.DrumDiameterUnit }" ItemsSource="{ Binding LengthUnitList }"/>
+			</StackPanel>
+			<StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="2">
+				<TextBlock Text="Flange Height" Width="180" VerticalAlignment="Center" Margin="2"/>
+				<TextBox Watermark="Enter Diameter" Text="{ Binding CurrentWinch.FlangeHeight }" Width="140" Margin="2" HorizontalContentAlignment="Center"/>
+				<ComboBox Margin="2" SelectedItem="{ Binding CurrentWinch.FlangeHeightUnit }" ItemsSource="{ Binding LengthUnitList }"/>
+			</StackPanel>
+			<StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="2">
+				<TextBlock Text="Drum Width" Width="180" VerticalAlignment="Center" Margin="2"/>
+				<TextBox Watermark="Enter Width" Text="{ Binding CurrentWinch.DrumWidth }" Width="140" Margin="2" HorizontalContentAlignment="Center"/>
+				<ComboBox Margin="2" SelectedItem="{ Binding CurrentWinch.DrumWidthUnit }" ItemsSource="{ Binding LengthUnitList }"/>
+			</StackPanel>
+			<StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="2">
+				<TextBlock Text="Design Line Tension" Width="180" VerticalAlignment="Center" Margin="2"/>
+				<TextBox Watermark="Enter DLT" Text="{ Binding CurrentWinch.DesignLineTension }" Width="140" Margin="2" HorizontalContentAlignment="Center"/>
+				<ComboBox Margin="2" SelectedItem="{ Binding CurrentWinch.DesignLineTensionUnit }" ItemsSource="{ Binding ForceUnitList }"/>
+			</StackPanel>
+			<StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="2">
+				<TextBlock Text="Line Pull" Width="180" VerticalAlignment="Center" Margin="2"/>
+				<TextBox Watermark="Enter Line Pull" Text="{ Binding CurrentWinch.LinePull }" Width="140" Margin="2" HorizontalContentAlignment="Center"/>
+				<ComboBox Margin="2" SelectedItem="{ Binding CurrentWinch.LinePullUnit }" ItemsSource="{ Binding ForceUnitList }"/>
+			</StackPanel>
+			<StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="2">
+				<TextBlock Text="Roller/Sheave Diameter" Width="180" VerticalAlignment="Center" Margin="2"/>
+				<TextBox Watermark="Enter Diameter" Text="{ Binding CurrentWinch.LevelWindDiameter }" Width="140" Margin="2" HorizontalContentAlignment="Center"/>
+				
+				<ComboBox SelectedItem="{ Binding CurrentWinch.LevelWindDiameterUnit }" ItemsSource="{ Binding LengthUnitList }" Margin="2"/>
+			</StackPanel>
+			<StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="2">
+				<TextBlock Text="Rollers" Width="180" VerticalAlignment="Center" Margin="2"/>
+				<CheckBox Content="Rollers?" Margin="2"/>
+			</StackPanel>
+			<StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="2">
+				<TextBlock Text="Tension Monitoring" Width="180" VerticalAlignment="Center" Margin="2"/>
+				<CheckBox Content="Tension Monitoring?" Margin="2"/>
+			</StackPanel>
+			<StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="2">
+				<Button Content="Add Winch" Command="{ Binding AddWinchCommand }" HorizontalContentAlignment="Center" Width="200" Margin="2"/>
+				<Button Content="Remove Winch" Command="{ Binding RemoveWinchCommand }" HorizontalContentAlignment="Center" Width="200" Margin="2"/>
+			</StackPanel>
+		</StackPanel>
+		</ScrollViewer>
+	</Panel>
+</UserControl>
