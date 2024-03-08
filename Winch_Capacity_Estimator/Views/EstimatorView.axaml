@@ -59,9 +59,13 @@
 						<ComboBox ItemsSource="{ Binding TensionMemberList }" SelectedItem="{ Binding SelectedTensionMember }" Width="200" Margin="4" VerticalAlignment="Center"/>
 					</StackPanel>
 					<StackPanel Orientation="Horizontal">
-						<TextBlock Text="Tension Member Diameter" Width="200" Margin="4" VerticalAlignment="Center"/>
+						<TextBlock Text="Tension Member Diameter (in)" Width="200" Margin="4" VerticalAlignment="Center"/>
 						<TextBox Text="{ Binding CurrentTensionMember.Diameter }" Width="200" Margin="4" VerticalAlignment="Center"/>
 					</StackPanel>
+						<StackPanel Orientation="Horizontal">
+							<TextBlock Text="Weight in Water (lbf/kft)" Width="200" Margin="4" VerticalAlignment="Center"/>
+							<TextBox Text="{ Binding CurrentTensionMember.WeightInWater }" Width="200" Margin="4" VerticalAlignment="Center"/>
+						</StackPanel>
 					<StackPanel Orientation="Horizontal">
 						<TextBlock Text="Tension Member Length Unit" Width="200" Margin="4" VerticalAlignment="Center"/>
 						<ComboBox ItemsSource="{ Binding LengthUnitList }" SelectedItem="{ Binding DrumTable.TMUnit }" Width="200" Margin="4" VerticalAlignment="Center"/>
