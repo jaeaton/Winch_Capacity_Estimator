@@ -3,15 +3,15 @@
     public partial class TabItemModel : ObservableObject
     {
         [ObservableProperty]
-        private string? header;
+        private string header = string.Empty;
         [ObservableProperty]
-        private string? content;
+        private string content = string.Empty;
 
         public TabItemModel()
         {
             
         }
-        public TabItemModel(string? header, string? content)
+        public TabItemModel(string header, string content)
         {
             this.header = header;
             this.content = content;

@@ -3,73 +3,73 @@
     public partial class WinchModel : ObservableObject
     {
         [ObservableProperty]
-        private string? winchName;
+        private string winchName = string.Empty;
 
         [ObservableProperty]
-        private string? winchManufacturer;
+        private string winchManufacturer = string.Empty;
 
         [ObservableProperty]
-        private string? winchModelNumber;
+        private string winchModelNumber = string.Empty;
 
         [ObservableProperty]
-        private string? drumDiameter;
-        partial void OnDrumDiameterChanged(string? value)
+        private string drumDiameter = string.Empty;
+        partial void OnDrumDiameterChanged(string value)
         {
             DrumDiameter = value.Replace(",","");
         }
 
         [ObservableProperty]
-        private string? drumDiameterUnit;
+        private string drumDiameterUnit = string.Empty;
 
         [ObservableProperty]
-        private string? flangeHeight;
-        partial void OnFlangeHeightChanged(string? value)
+        private string flangeHeight = string.Empty;
+        partial void OnFlangeHeightChanged(string value)
         {
             FlangeHeight = value.Replace(",", "");
         }
 
         [ObservableProperty]
-        private string? flangeHeightUnit;
+        private string flangeHeightUnit = string.Empty;
 
         [ObservableProperty]
-        private string? drumWidth;
-        partial void OnDrumWidthChanged(string? value)
+        private string drumWidth = string.Empty;
+        partial void OnDrumWidthChanged(string value)
         {
             DrumWidth = value.Replace(",", "");
         }
 
         [ObservableProperty]
-        private string? drumWidthUnit;
+        private string drumWidthUnit = string.Empty;
 
         [ObservableProperty]
-        private string? levelWindDiameter;
-        partial void OnLevelWindDiameterChanged(string? value)
+        private string levelWindDiameter = string.Empty;
+        partial void OnLevelWindDiameterChanged(string value)
         {
             LevelWindDiameter = value.Replace(",", "");
         }
 
         [ObservableProperty]
-        private string? levelWindDiameterUnit;
+        private string levelWindDiameterUnit = string.Empty;
 
         [ObservableProperty]
-        private string? linePull;
-        partial void OnLinePullChanged(string? value)
+        private string linePull = string.Empty;
+        partial void OnLinePullChanged(string value)
         {
             LinePull = value.Replace(",", "");
         }
 
         [ObservableProperty]
-        private string? linePullUnit;
+        private string linePullUnit = string.Empty;
 
         [ObservableProperty]
-        private string? designLineTension;
-        partial void OnDesignLineTensionChanged(string? value)
+        private string designLineTension = string.Empty;
+        partial void OnDesignLineTensionChanged(string value)
         {
             DesignLineTension = value.Replace(",", "");
         }
 
         [ObservableProperty]
-        private string? designLineTensionUnit;
+        private string designLineTensionUnit = string.Empty;
 
         [ObservableProperty]
         private bool usesRollers;

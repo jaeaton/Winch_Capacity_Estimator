@@ -3,26 +3,26 @@
     public partial class DataStore : ObservableObject
     {
         [ObservableProperty]
-        private object? selectedTensionMember;
-        partial void OnSelectedTensionMemberChanged(object? value)
+        private object selectedTensionMember = new();
+        partial void OnSelectedTensionMemberChanged(object value)
         {
             TabItemModel item = value as TabItemModel;
             LoadTensionMember(item.Header);
         }
 
         [ObservableProperty]
-        private object? selectedWinch;
-        partial void OnSelectedWinchChanged(object? value)
+        private object selectedWinch = new();
+        partial void OnSelectedWinchChanged(object value)
         {
             TabItemModel item = value as TabItemModel;
             LoadWinch(item.Header);
         }
 
         [ObservableProperty]
-        private TensionMemberModel? currentTensionMember;
+        private TensionMemberModel currentTensionMember = new();
 
         [ObservableProperty]
-        private WinchModel? currentWinch;
+        private WinchModel currentWinch = new();
 
         [ObservableProperty]
         private ObservableCollection<WinchModel> winches = new();
@@ -31,7 +31,19 @@
         private ObservableCollection<TensionMemberModel> tensionMembers = new();
 
         [ObservableProperty]
-        private DrumTableModel? drumTable = new();
+        private DrumTableModel drumTable = new();
+
+        [ObservableProperty]
+        private int selectedIndex = 0;
+        partial void OnSelectedIndexChanged(int value)
+        {
+            if ( value >= 0)
+            {
+                value = value + 1;
+                DrumCapacity(value);
+            }
+            
+        }
 
         [ObservableProperty]
         private ObservableCollection<TabItemModel> winchList = new() 
@@ -86,7 +98,7 @@
 
         };
 
-        public void LoadTensionMember(string? value)
+        public void LoadTensionMember(string value)
         {
 
             string tensionMember = value;
@@ -115,7 +127,7 @@
             }
             CurrentTensionMember = TensionMemberSelected;
         }
-        public void LoadWinch(string? value)
+        public void LoadWinch(string value)
         {
             string winch = value;
             WinchModel WinchSelected = new();
@@ -302,8 +314,9 @@
         }
 
         [RelayCommand]
-        public void DrumCapacity()
+        public void DrumCapacity(object desiredLayers)
         {
+            int layers = int.Parse(desiredLayers.ToString());
             WinchModel winch = CurrentWinch;
             TensionMemberModel tm = CurrentTensionMember;
             DrumTableModel dt = DrumTable;
@@ -369,6 +382,11 @@
                     ff = UnitConversionToMeters(tm.DiameterUnit, 2 * tmd);
                     ffUnit = tm.DiameterUnit;
                     break;
+            }
+
+            if (layers > 1)
+            {
+                ff = fh - UnitConversionToMeters(tm.DiameterUnit ,(layers+.1) * tmd);
             }
 
             //Check and convert to consistent units (meters)

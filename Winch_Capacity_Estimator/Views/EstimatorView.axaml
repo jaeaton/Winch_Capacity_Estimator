@@ -75,7 +75,7 @@
 							<ComboBox ItemsSource="{ Binding SpoolingFactorList }" SelectedItem="{ Binding DrumTable.SpoolingFactor }" Width="200" Margin="4" VerticalAlignment="Center"/>
 						</StackPanel>
 						<StackPanel>
-							<Button Content="Calculate Drum Table" Command="{ Binding DrumCapacityCommand }"/>
+							<Button Content="Calculate Drum Table" Command="{ Binding DrumCapacityCommand }" CommandParameter="0"/>
 						</StackPanel>
 				</StackPanel>
 				</ScrollViewer>
@@ -83,10 +83,15 @@
 			</Border>			
 		</Grid>
 		<Border Grid.Column="1" BorderBrush="DarkCyan" BorderThickness="2" CornerRadius="5" Margin="2">
-			<Panel>
-				<TextBlock Text="Spooling Chart" HorizontalAlignment="Center" FontWeight="Bold"/>
-				<ScrollViewer>
-					<DataGrid GridLinesVisibility="All" Margin="20" BorderThickness="2" ItemsSource="{ Binding DrumTable.DrumTable}">
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="18"/>
+					<RowDefinition Height="*"/>
+				</Grid.RowDefinitions>
+				<TextBlock Text="Spooling Chart" Grid.Row="0" HorizontalAlignment="Center" FontWeight="Bold"/>
+				<ScrollViewer Grid.Row="1">
+					
+						<DataGrid GridLinesVisibility="All" Margin="20" BorderThickness="2" ItemsSource="{ Binding DrumTable.DrumTable}" SelectedIndex="{Binding SelectedIndex}">
 						<DataGrid.Columns>
 							<DataGridTextColumn Header="Layer" Binding="{ Binding LayerNumber }"/>
 							<DataGridTextColumn Header="TM on Drum" Binding="{ Binding TMOnDrum }"/>
@@ -96,8 +101,10 @@
 							<DataGridTextColumn Header="Live Load" Binding="{ Binding LiveLoad }"/>
 						</DataGrid.Columns>
 					</DataGrid>
+					
+					
 				</ScrollViewer>
-			</Panel>
+			</Grid>
 			
 		</Border>
 		

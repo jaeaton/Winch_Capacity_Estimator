@@ -6,28 +6,28 @@
         private ObservableCollection<LayerModel> drumTable = new();
 
         [ObservableProperty]
-        private string? winchName;
+        private string winchName = string.Empty;
 
         [ObservableProperty]
-        private string? tMUsed;
+        private string tMUsed = string.Empty;
 
         [ObservableProperty]
-        private string? tMCapacity;
+        private string tMCapacity = string.Empty;
 
         [ObservableProperty]
-        private string? layerQuantity;
+        private string layerQuantity = string.Empty;
 
         [ObservableProperty]
-        private string? tMUnit;
+        private string tMUnit = string.Empty;
 
         [ObservableProperty]
-        private string? layerTurnQuantity;
+        private string layerTurnQuantity = string.Empty;
 
         [ObservableProperty]
-        private string? freeFlange;
+        private string freeFlange = string.Empty;
 
         [ObservableProperty]
-        private string? actualFreeFlange;
+        private string actualFreeFlange = string.Empty;
 
         [ObservableProperty]
         private string spoolingFactor = new string("96");

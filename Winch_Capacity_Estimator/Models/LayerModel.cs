@@ -3,22 +3,22 @@
     public partial class LayerModel : ObservableObject
     {
         [ObservableProperty]
-        private string? layerNumber;
+        private string layerNumber = string.Empty;
 
         [ObservableProperty] 
-        private string layerLength;
+        private string layerLength = string.Empty;
 
         [ObservableProperty]
-        private string? tMOnDrum;
+        private string tMOnDrum = string.Empty;
 
         [ObservableProperty]
-        private string? tMOffDrum;
+        private string tMOffDrum = string.Empty;
 
         [ObservableProperty]
-        private string? layerLinePull;
+        private string layerLinePull = string.Empty;
 
         [ObservableProperty]
-        private string? liveLoad;
+        private string liveLoad = string.Empty;
 
         public LayerModel()
         {
