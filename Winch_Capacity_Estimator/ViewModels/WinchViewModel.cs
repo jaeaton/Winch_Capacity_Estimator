@@ -1,4 +1,4 @@
-﻿namespace ECWP_Drum_Estimator.ViewModels
+﻿namespace ViewModels
 {
     public partial class WinchViewModel : ObservableObject
     {
