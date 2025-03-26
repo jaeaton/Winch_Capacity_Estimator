@@ -435,7 +435,7 @@
                 //Length = (Flange Diameter^2-Drum Diameter^2) * Drum Length * pi/(Wire Diameter^2)
                 tmLength = sf * ((ufh + dd) * ufh * dw * pi / (tmd * tmd));
                 tmLength = UnitConversionFromMeters(OutUnit, tmLength);
-                dt.TMCapacity = tmLength.ToString("#.#");
+                dt.TMCapacity = tmLength.ToString("#.##");
                 dt.LayerQuantity = layerCount.ToString("#.#");
 
                 //Calculate Turns per Layer
@@ -456,10 +456,10 @@
                     lengthOnDrum += lengthPerLayer;
                     lengthOffDrum = tmLength - lengthOnDrum;
                     linePullOnLayer = lp * (dd / 2) / (dd / 2 + (i - 0.5) * tmd);
-                    liveLoad = linePullOnLayer - tmw * lengthOffDrum;
+                    liveLoad = linePullOnLayer - tmw * UnitConversionToMeters(OutUnit, lengthOffDrum);
                     linePullOnLayer = UnitConversionfromPounds(winch.LinePullUnit, linePullOnLayer);
                     liveLoad = UnitConversionfromPounds(winch.LinePullUnit, liveLoad);
-                    LayerModel layer = new LayerModel(i.ToString("##"), lengthPerLayer.ToString("#.#"), lengthOnDrum.ToString("#.#"), lengthOffDrum.ToString("#.#"), linePullOnLayer.ToString("#.#"), liveLoad.ToString("#.#"));
+                    LayerModel layer = new LayerModel(i.ToString("##"), lengthPerLayer.ToString("#.##"), lengthOnDrum.ToString("#.##"), lengthOffDrum.ToString("#.##"), linePullOnLayer.ToString("#.##"), liveLoad.ToString("#.#"));
                     dt.DrumTable.Add(layer);
                     i++;
                 } while (i <= layerCount);
@@ -525,7 +525,7 @@
                     value = value * 2.2;
                     break;
                 case "kn":
-                    value = (value / 9.81) * 2.2;
+                    value = ((value * 1000) / 9.81) * 2.2;
                     break;
                 case "ton":
                     value = value * 2000;
@@ -544,7 +544,7 @@
                     value = value / 2.2;
                     break;
                 case "kn":
-                    value = (value * 9.81) / 2.2;
+                    value = (value * 9.81/1000) / 2.2;
                     break;
                 case "ton":
                     value = value / 2000;
