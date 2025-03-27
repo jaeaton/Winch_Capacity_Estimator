@@ -335,7 +335,7 @@
             bool bsf = double.TryParse(dt.SpoolingFactor, out sf);
             if (bsf)
             {
-                sf = sf/100;
+                sf /= 100;
             }
             //Check and convert Flange Height (fh)
             bool bfh = double.TryParse(winch.FlangeHeight, out double fh);
@@ -466,12 +466,12 @@
             }
         }
         //Converts values to meters
-        public double UnitConversionToMeters(string unit, double value)
+        public static double UnitConversionToMeters(string unit, double value)
         {
             switch (unit)
             {
                 case "mm":
-                    value = value / 1000;
+                    value /= 1000;
                     break;
                 case "in":
                     value = value * 25.4 / 1000;
@@ -483,7 +483,7 @@
                     value = (value * 1000 * 12 * 25.4) / 1000;
                     break;
                 case "km":
-                    value = value * 1000;
+                    value *= 1000;
                     break;
                 default:
                     break;
@@ -491,12 +491,12 @@
             return value;
         }
         //Converts values from meters
-        public double UnitConversionFromMeters(string unit, double value)
+        public static double UnitConversionFromMeters(string unit, double value)
         {
             switch (unit)
             {
                 case "mm":
-                    value = value * 1000;
+                    value *= 1000;
                     break;
                 case "in":
                     value = value * 1000 / 25.4;
@@ -508,7 +508,7 @@
                     value = (value * 1000) / (1000 * 12 * 25.4);
                     break;
                 case "km":
-                    value = value / 1000;
+                    value /= 1000;
                     break;
                 default:
                     break;
@@ -517,18 +517,18 @@
         }
 
         //Converts value to pounds
-        public double UnitConversionToPounds(string unit, double value)
+        public static double UnitConversionToPounds(string unit, double value)
         {
             switch (unit)
             {
                 case "kg":
-                    value = value * 2.2;
+                    value *= 2.2;
                     break;
                 case "kn":
                     value = ((value * 1000) / 9.81) * 2.2;
                     break;
                 case "ton":
-                    value = value * 2000;
+                    value *= 2000;
                     break;
                 default:
                     break;
@@ -536,18 +536,18 @@
             return value;
         }
         //Converts value from pounds
-        public double UnitConversionfromPounds(string unit, double value)
+        public static double UnitConversionfromPounds(string unit, double value)
         {
             switch (unit)
             {
                 case "kg":
-                    value = value / 2.2;
+                    value /= 2.2;
                     break;
                 case "kn":
                     value = (value * 9.81/1000) / 2.2;
                     break;
                 case "ton":
-                    value = value / 2000;
+                    value /= 2000;
                     break;
                 default:
                     break;
