@@ -102,6 +102,7 @@
 							<DataGridTextColumn Header="TM on Layer" Binding="{ Binding LayerLength }"/>
 							<DataGridTextColumn Header="TM Off Drum" Binding="{ Binding TMOffDrum }"/>
 							<DataGridTextColumn Header="Layer Line Pull (lbf)" Binding="{ Binding LayerLinePull }"/>
+							<DataGridTextColumn Header="TM Weight (lbf)" Binding="{Binding TmWeight}"/>
 							<DataGridTextColumn Header="Live Load (lbf)" Binding="{ Binding LiveLoad }"/>
 						</DataGrid.Columns>
 					</DataGrid>

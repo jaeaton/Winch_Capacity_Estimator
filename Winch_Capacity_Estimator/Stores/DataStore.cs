@@ -448,6 +448,7 @@
                 double lengthOnDrum = 0;
                 double linePullOnLayer;
                 double liveLoad;
+                double tensionMemberWeight;
                 int i = 1;
                 do
                 {
@@ -456,10 +457,11 @@
                     lengthOnDrum += lengthPerLayer;
                     lengthOffDrum = tmLength - lengthOnDrum;
                     linePullOnLayer = lp * (dd / 2) / (dd / 2 + (i - 0.5) * tmd);
-                    liveLoad = linePullOnLayer - tmw * UnitConversionToMeters(OutUnit, lengthOffDrum);
+                    tensionMemberWeight = tmw * UnitConversionToMeters(OutUnit, lengthOffDrum);
+                    liveLoad = linePullOnLayer - tensionMemberWeight;
                     linePullOnLayer = UnitConversionfromPounds(winch.LinePullUnit, linePullOnLayer);
                     liveLoad = UnitConversionfromPounds(winch.LinePullUnit, liveLoad);
-                    LayerModel layer = new LayerModel(i.ToString("##"), lengthPerLayer.ToString("#.##"), lengthOnDrum.ToString("#.##"), lengthOffDrum.ToString("#.##"), linePullOnLayer.ToString("#.##"), liveLoad.ToString("#.#"));
+                    LayerModel layer = new LayerModel(i.ToString("##"), lengthPerLayer.ToString("#.##"), lengthOnDrum.ToString("#.##"), lengthOffDrum.ToString("#.##"), linePullOnLayer.ToString("#.##"), liveLoad.ToString("#.#"), tensionMemberWeight.ToString("#.#"));
                     dt.DrumTable.Add(layer);
                     i++;
                 } while (i <= layerCount);

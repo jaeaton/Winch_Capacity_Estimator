@@ -20,12 +20,15 @@
         [ObservableProperty]
         private string liveLoad = string.Empty;
 
+        [ObservableProperty]
+        private String tmWeight = string.Empty;
+
         public LayerModel()
         {
 
         }
 
-        public LayerModel(string _layerNumber,string _layerLength,string _tMOnDrum, string _tMOffDrum, string _layerLinePull, string _liveLoad)
+        public LayerModel(string _layerNumber,string _layerLength,string _tMOnDrum, string _tMOffDrum, string _layerLinePull, string _liveLoad, string _tmWeight)
         {
             LayerNumber = _layerNumber;
             LayerLength = _layerLength;
@@ -33,6 +36,7 @@
             TMOffDrum = _tMOffDrum; 
             layerLinePull = _layerLinePull;
             LiveLoad = _liveLoad;
+            tmWeight = _tmWeight;
         }
         public LayerModel ShallowCopy()
         {
