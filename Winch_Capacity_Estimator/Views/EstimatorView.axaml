@@ -13,6 +13,8 @@
 		<Grid Grid.Column="0">
 			<Grid.RowDefinitions>
 				<RowDefinition Height="Auto"/>
+				<RowDefinition Height="Auto"/>
+				<RowDefinition Height="Auto"/>
 				<RowDefinition Height="*"/>
 			</Grid.RowDefinitions>
 			<Border Grid.Row="0" BorderBrush="DarkBlue" BorderThickness="2" Margin="2" CornerRadius="5">
@@ -58,7 +60,15 @@
 							<TextBlock Text="Bare Drum Line Pull" Width="200" Margin="4" VerticalAlignment="Center"/>
 							<TextBox Text="{Binding CurrentWinch.LinePull}" Width="200" Margin="4" VerticalAlignment="Center"/>
 						</StackPanel>
-					<StackPanel Orientation="Horizontal">
+					
+						
+				</StackPanel>
+				</ScrollViewer>
+				
+			</Border>	
+			<Border Grid.Row="2" BorderThickness="2" BorderBrush="Chocolate" CornerRadius="5" Margin="2">
+				<StackPanel>
+				<StackPanel Orientation="Horizontal">
 						<TextBlock Text="Choose Tension Member" Width="200" Margin="4" VerticalAlignment="Center"/>
 						<ComboBox ItemsSource="{ Binding TensionMemberList }" SelectedItem="{ Binding SelectedTensionMember }" Width="200" Margin="4" VerticalAlignment="Center"/>
 					</StackPanel>
@@ -82,13 +92,11 @@
 							<TextBlock Text="Spooling Efficiency (%)" Width="200" Margin="4" VerticalAlignment="Center"/>
 							<ComboBox ItemsSource="{ Binding SpoolingFactorList }" SelectedItem="{ Binding DrumTable.SpoolingFactor }" Width="200" Margin="4" VerticalAlignment="Center"/>
 						</StackPanel>
-						<StackPanel>
+					</StackPanel>
+			</Border>
+			<StackPanel Grid.Row="3">
 							<Button Content="Calculate Drum Table" Command="{ Binding DrumCapacityCommand }" CommandParameter="0"/>
 						</StackPanel>
-				</StackPanel>
-				</ScrollViewer>
-				
-			</Border>			
 		</Grid>
 		<Border Grid.Column="1" BorderBrush="DarkCyan" BorderThickness="2" CornerRadius="5" Margin="2">
 			<Grid>
