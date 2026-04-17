@@ -54,6 +54,10 @@
 						<TextBlock Text="Drum Width" Width="200" Margin="4" VerticalAlignment="Center"/>
 						<TextBox Text="{ Binding CurrentWinch.DrumWidth }" Width="200" Margin="4" VerticalAlignment="Center"/>
 					</StackPanel>
+						<StackPanel Orientation="Horizontal">
+							<TextBlock Text="Bare Drum Line Pull" Width="200" Margin="4" VerticalAlignment="Center"/>
+							<TextBox Text="{Binding CurrentWinch.LinePull}" Width="200" Margin="4" VerticalAlignment="Center"/>
+						</StackPanel>
 					<StackPanel Orientation="Horizontal">
 						<TextBlock Text="Choose Tension Member" Width="200" Margin="4" VerticalAlignment="Center"/>
 						<ComboBox ItemsSource="{ Binding TensionMemberList }" SelectedItem="{ Binding SelectedTensionMember }" Width="200" Margin="4" VerticalAlignment="Center"/>
