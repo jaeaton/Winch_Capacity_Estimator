@@ -40,46 +40,51 @@
 			<Border Grid.Row="1" BorderThickness="2" BorderBrush="DarkGray" CornerRadius="5" Margin="2">
 				<ScrollViewer>
 					<StackPanel>
-					<StackPanel Orientation="Horizontal">
-						<TextBlock Text="Choose Winch" Width="200" Margin="4" VerticalAlignment="Center"/>
-						<ComboBox ItemsSource="{ Binding WinchList }" SelectedItem="{ Binding SelectedWinch }" Width="200" Margin="4" VerticalAlignment="Center"/>
-					</StackPanel>
-					<StackPanel Orientation="Horizontal">
-						<TextBlock Text="Drum Diameter" Width="200" Margin="4" VerticalAlignment="Center"/>
-						<TextBox Text="{ Binding CurrentWinch.DrumDiameter }" Width="200" Margin="4" VerticalAlignment="Center"/>
-					</StackPanel>
-					<StackPanel Orientation="Horizontal">
-						<TextBlock Text="Flange Height" Width="200" Margin="4" VerticalAlignment="Center"/>
-						<TextBox Text="{ Binding CurrentWinch.FlangeHeight }" Width="200" Margin="4" VerticalAlignment="Center"/>
-					</StackPanel>
-					<StackPanel Orientation="Horizontal">
-						<TextBlock Text="Drum Width" Width="200" Margin="4" VerticalAlignment="Center"/>
-						<TextBox Text="{ Binding CurrentWinch.DrumWidth }" Width="200" Margin="4" VerticalAlignment="Center"/>
-					</StackPanel>
+						<StackPanel Orientation="Horizontal">
+							<TextBlock Text="Choose Winch" Width="200" Margin="4" VerticalAlignment="Center"/>
+							<ComboBox ItemsSource="{ Binding WinchList }" SelectedItem="{ Binding SelectedWinch }" Width="200" Margin="4" VerticalAlignment="Center"/>
+						</StackPanel>
+						<StackPanel Orientation="Horizontal">
+							<TextBlock Text="Drum Diameter" Width="200" Margin="4" VerticalAlignment="Center"/>
+							<TextBox Text="{ Binding CurrentWinch.DrumDiameter }" Width="75" Margin="4" VerticalAlignment="Center"/>
+							<ComboBox ItemsSource="{Binding LengthUnitList}" Width="116" Margin="4" VerticalAlignment="Center"/>
+						</StackPanel>
+						<StackPanel Orientation="Horizontal">
+							<TextBlock Text="Flange Height" Width="200" Margin="4" VerticalAlignment="Center"/>
+							<TextBox Text="{ Binding CurrentWinch.FlangeHeight }" Width="75" Margin="4" VerticalAlignment="Center"/>
+							<ComboBox ItemsSource="{Binding LengthUnitList}" Width="116" Margin="4" VerticalAlignment="Center"/>
+						</StackPanel>
+						<StackPanel Orientation="Horizontal">
+							<TextBlock Text="Drum Width" Width="200" Margin="4" VerticalAlignment="Center"/>
+							<TextBox Text="{ Binding CurrentWinch.DrumWidth }" Width="75" Margin="4" VerticalAlignment="Center"/>
+							<ComboBox ItemsSource="{Binding LengthUnitList}" Width="116" Margin="4" VerticalAlignment="Center"/>
+						</StackPanel>
 						<StackPanel Orientation="Horizontal">
 							<TextBlock Text="Bare Drum Line Pull" Width="200" Margin="4" VerticalAlignment="Center"/>
-							<TextBox Text="{Binding CurrentWinch.LinePull}" Width="200" Margin="4" VerticalAlignment="Center"/>
+							<TextBox Text="{Binding CurrentWinch.LinePull}" Width="75" Margin="4" VerticalAlignment="Center"/>
+							<ComboBox ItemsSource="{Binding ForceUnitList}" Width="116" Margin="4" VerticalAlignment="Center"/>
 						</StackPanel>
-					
-						
-				</StackPanel>
+					</StackPanel>
 				</ScrollViewer>
-				
 			</Border>	
 			<Border Grid.Row="2" BorderThickness="2" BorderBrush="Chocolate" CornerRadius="5" Margin="2">
 				<StackPanel>
-				<StackPanel Orientation="Horizontal">
+					<StackPanel Orientation="Horizontal">
 						<TextBlock Text="Choose Tension Member" Width="200" Margin="4" VerticalAlignment="Center"/>
 						<ComboBox ItemsSource="{ Binding TensionMemberList }" SelectedItem="{ Binding SelectedTensionMember }" Width="200" Margin="4" VerticalAlignment="Center"/>
 					</StackPanel>
 					<StackPanel Orientation="Horizontal">
 						<TextBlock Text="Tension Member Diameter (in)" Width="200" Margin="4" VerticalAlignment="Center"/>
-						<TextBox Text="{ Binding CurrentTensionMember.Diameter }" Width="200" Margin="4" VerticalAlignment="Center"/>
+						<TextBox Text="{ Binding CurrentTensionMember.Diameter }" Width="75" Margin="4" VerticalAlignment="Center"/>
+						<ComboBox ItemsSource="{Binding LengthUnitList}" Width="116" Margin="4" VerticalAlignment="Center"/>
 					</StackPanel>
-						<StackPanel Orientation="Horizontal">
-							<TextBlock Text="Weight in Water (lbf/kft)" Width="200" Margin="4" VerticalAlignment="Center"/>
-							<TextBox Text="{ Binding CurrentTensionMember.WeightInWater }" Width="200" Margin="4" VerticalAlignment="Center"/>
-						</StackPanel>
+					<StackPanel Orientation="Horizontal">
+						<TextBlock Text="Weight in Water (lbf/kft)" Width="200" Margin="4" VerticalAlignment="Center"/>
+						<TextBox Text="{ Binding CurrentTensionMember.WeightInWater }" Width="75" Margin="4" VerticalAlignment="Center"/>
+						<ComboBox ItemsSource="{Binding ForceUnitList}" Width="68" Margin="4" VerticalAlignment="Center"/>
+						<TextBlock Text="/" VerticalAlignment="Center" FontSize="28"/>
+						<ComboBox ItemsSource="{Binding LengthUnitList}" Width="68" Margin="4" VerticalAlignment="Center"/>
+					</StackPanel>
 					<StackPanel Orientation="Horizontal">
 						<TextBlock Text="Tension Member Length Unit" Width="200" Margin="4" VerticalAlignment="Center"/>
 						<ComboBox ItemsSource="{ Binding LengthUnitList }" SelectedItem="{ Binding DrumTable.TMUnit }" Width="200" Margin="4" VerticalAlignment="Center"/>
@@ -88,11 +93,11 @@
 						<TextBlock Text="Free Flange Minimum" Width="200" Margin="4" VerticalAlignment="Center"/>
 						<ComboBox ItemsSource="{ Binding FreeFlangeList }" SelectedItem="{ Binding DrumTable.FreeFlange }" Width="200" Margin="4" VerticalAlignment="Center"/>
 					</StackPanel>
-						<StackPanel Orientation="Horizontal">
-							<TextBlock Text="Spooling Efficiency (%)" Width="200" Margin="4" VerticalAlignment="Center"/>
-							<ComboBox ItemsSource="{ Binding SpoolingFactorList }" SelectedItem="{ Binding DrumTable.SpoolingFactor }" Width="200" Margin="4" VerticalAlignment="Center"/>
-						</StackPanel>
+					<StackPanel Orientation="Horizontal">
+						<TextBlock Text="Spooling Efficiency (%)" Width="200" Margin="4" VerticalAlignment="Center"/>
+						<ComboBox ItemsSource="{ Binding SpoolingFactorList }" SelectedItem="{ Binding DrumTable.SpoolingFactor }" Width="200" Margin="4" VerticalAlignment="Center"/>
 					</StackPanel>
+				</StackPanel>
 			</Border>
 			<StackPanel Grid.Row="3">
 							<Button Content="Calculate Drum Table" Command="{ Binding DrumCapacityCommand }" CommandParameter="0"/>
